@@ -55,15 +55,15 @@ So, we need:
 
 Processing:
 
-Steps 4 & 5 are the fun bit. Kudos to Imke for working that out.
+Steps 3 & 4 are the fun bit. Kudos to Imke for working out that it's possible to merge against the _already existing table_.
 
 1. Check to see if there is already a table on an Excel worksheet with manually entered data. If there _is_ manually entered data, we need to keep that data. Load the whole table into PQ as PreviousOutput.
 2. Figure out what columns are in PreviousOutput that _aren't_ already in SourceData. The unique columns are the data that we need to maintain. We put those in a list called ColumnsAdditional.
-4. Merge. We take the _current_ SourceData and merge against PreviousOutput on the key column. We join LeftOuter: keep all the current SourceData, merge in only matching rows from PreviousOutput. That means deleting a row in SourceData will irrevocably delete/remove the manually entered data ... perhaps you don't want that - if so, you'll need to edit the code to suit.
-5. "Expand". That merge attaches a whole row inside a single column (very Dr Who). We only need our manually-entered data columns, so we take the list of ColumnsAdditional and make sure those get expanded.
-6. If our list of "ColumnsRequired" has something that _isn't_ in the table, now ... the user has (hopefully) added a new column for manually-entered data. Add that new column.
-7. Sort for cleanliness.
-8. Check the data and pray that giving this to other people doesn't cause massive data loss.
+3. Merge. We take the _current_ SourceData and merge against PreviousOutput on the key column. We join LeftOuter: keep all the current SourceData, merge in only matching rows from PreviousOutput. That means deleting a row in SourceData will irrevocably delete/remove the manually entered data ... perhaps you don't want that - if so, you'll need to edit the code to suit.
+4. "Expand". That merge attaches a whole row inside a single column (very Dr Who). We only need our manually-entered data columns, so we take the list of ColumnsAdditional and make sure those get expanded.
+5. If our list of "ColumnsRequired" has something that _isn't_ in the table, now ... the user has (hopefully) added a new column for manually-entered data. Add that new column.
+6. Sort for cleanliness.
+7. Check the data and pray that giving this to other people doesn't cause massive data loss.
 
 ## To Do
 1. More testing.
