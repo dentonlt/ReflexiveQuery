@@ -32,7 +32,7 @@ let
     // We can't just rely up on the list of names incoming (from ColumnsRequired, above) because we don't know if we have added
     // those columns in a previous step or not ... or if one or more has been intentionally removed.
     ColumnsAdditional = List.Difference(
-        if PreviousOutput is null then null
+        if PreviousOutput is null then {}
             else Table.ColumnNames(PreviousOutput),
         Table.ColumnNames(Source)),
 
